@@ -4,6 +4,7 @@ import Header from './components/Header';
 import MakeOrder from './components/MakeOrder'
 import Test from './components/Test'
 import './components/css/header.css'
+import './components/css/makeOrder.css'
 
 function App() {
   return (

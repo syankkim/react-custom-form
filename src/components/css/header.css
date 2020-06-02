@@ -4,6 +4,7 @@
     padding: 5px 10px;
     margin: 0;
     background: lightseagreen;
+    z-index: 99999;
 }
 
 .navi-header {
