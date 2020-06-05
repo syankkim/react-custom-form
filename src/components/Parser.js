@@ -13,7 +13,10 @@ const Parser= ({orders})=>{
 
         console.log('Parser End -----------------------');
         //objects: {custNm: "", orderType: "4201", prodNm: ""}
-        let builder = new xml2js.Builder();
+        let builder = new xml2js.Builder({
+            xmldec:{ 'version': '1.0', 'encoding': 'UTF-8' },
+            cdata:true
+        });
         let xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Header xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
             <ns2:BITHeader xmlns:ns3="http://www.kt.com/bit/oss/GPNA_LVSP_OSB0001" xmlns:ns2="http://www.kt.com/bit/standard/header/v1">
@@ -28,22 +31,16 @@ const Parser= ({orders})=>{
             <gpna:insertBiznaruOrderInfo xmlns:gpna="http://www.kt.com/bit/oss/GPNA_LVSP_OSB0001">
                 <biznaruOrderInfoRequest>`
         xml += builder.buildObject(objects);
-        xml.replace('orders', 'insertBiznaruOrderInfo');
+        
+        xml= xml.replace(/orders/gi, 'insertBiznaruOrderInfo');
+        
         xml+=`\n</biznaruOrderInfoRequest>
         </gpna:insertBiznaruOrderInfo>
     </soap:Body>
 </soapenv:Envelope>`
 
         setMkxml(xml);
-        // const xm = '<soap:Header xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><ns2:InterfaceID>GPNA_LVSP_OSB0001</ns2:InterfaceID></soap:Header>';
-        // xml2js.parseString(xm, (err, result)=>{
-        //     console.log(result);
-        // });
-
-        const js = '{soap:Header: $:{xmlns:soap: "http://schemas.xmlsoap.org/soap/envelope/"}, ns2:InterfaceID: ["GPNA_LVSP_OSB0001"]}';
-        let xm2 = builder.buildObject(js);
-        console.log(xm2)
-
+        xml='';
     }
 
     return{

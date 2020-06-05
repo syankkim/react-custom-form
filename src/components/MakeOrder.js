@@ -5,7 +5,7 @@ import Parser from './Parser'
 const initialValues = {
   custNm : '',
   orderType: '4201',
-  prodNm : ''
+  prodNm : 'GiGAeyes i-view'
 };
 
 const MakeOrder= () => {
@@ -32,12 +32,13 @@ const MakeOrder= () => {
             <form onSubmit={handleSubmit} className='order-form'>
                 <h1>Make Your Order</h1>
                 <div>
-                  <label>고객명</label>
-                  <input type='text' name='custNm' onChange={handleChange} value={orders.custNm}/>
-                </div>
-                <div>
                   <label>상품유형</label>
-                  <input type='text' name='prodNm' onChange={handleChange} value={orders.prodNm}/>
+                  <select className='prodNm' defaultValue={initialValues.prodNm} name='prodNm'>
+                    <option selected value={orders.prodNm} onChange={handleChange}>GiGAeyes i-view</option>
+                    <option selected value={orders.prodNm} onChange={handleChange}>GiGAeyes i-guard</option>
+                    <option selected value={orders.prodNm} onChange={handleChange}>GiGAeyes i-slim</option>
+                    <option selected value={orders.prodNm} onChange={handleChange}>GiGAeyes i-special</option>
+                  </select>
                 </div>
                 <div>
                   <label>오더타입</label>
@@ -47,6 +48,10 @@ const MakeOrder= () => {
                     <option selected value={orders.orderType} onChange={handleChange}>4204</option>
                     <option selected value={orders.orderType} onChange={handleChange}>4203</option>
                   </select>
+                </div>
+                <div>
+                  <label>고객명</label>
+                  <input type='text' name='custNm' onChange={handleChange} value={orders.custNm}/>
                 </div>
                 <br/>
                 <div className="buttons">

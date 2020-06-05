@@ -3,8 +3,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './components/Header';
 import MakeOrder from './components/MakeOrder'
 import Test from './components/Test'
+import Footer from './components/Footer'
 import './components/css/header.css'
 import './components/css/makeOrder.css'
+import './components/css/footer.css'
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
               <Route path={"/test"} component={Test}/>
           </Switch>
         </div>
+        <Footer/>
     </Router>
   );
 }
