@@ -1,11 +1,12 @@
 import React from 'react';
 import useCustomForm from './hooks/useCustomForm';
 import Parser from './Parser'
+import formatter from 'xml-formatter'
 
 const initialValues = {
-  custNm : '',
+  prodNm : 'GiGAeyes i-view',
   orderType: '4201',
-  prodNm : 'GiGAeyes i-view'
+  custNm : '이덕스'
 };
 
 const MakeOrder= () => {
@@ -33,20 +34,20 @@ const MakeOrder= () => {
                 <h1>Make Your Order</h1>
                 <div>
                   <label>상품유형</label>
-                  <select className='prodNm' defaultValue={initialValues.prodNm} name='prodNm'>
-                    <option selected value={orders.prodNm} onChange={handleChange}>GiGAeyes i-view</option>
-                    <option selected value={orders.prodNm} onChange={handleChange}>GiGAeyes i-guard</option>
-                    <option selected value={orders.prodNm} onChange={handleChange}>GiGAeyes i-slim</option>
-                    <option selected value={orders.prodNm} onChange={handleChange}>GiGAeyes i-special</option>
+                  <select defaultValue={initialValues.prodNm}  onChange={handleChange} name='prodNm'>
+                    <option selected value='GiGAeyes i-view'>GiGAeyes i-view</option>
+                    <option selected value='GiGAeyes i-guard'>GiGAeyes i-guard</option>
+                    <option selected value='GiGAeyes i-slim'>GiGAeyes i-slim</option>
+                    <option selected value='GiGAeyes i-special'>GiGAeyes i-special</option>
                   </select>
                 </div>
                 <div>
                   <label>오더타입</label>
-                  <select className='order-type' defaultValue={initialValues.orderType} name='orderType'>
-                    <option selected value={orders.orderType} onChange={handleChange}>4201</option>
-                    <option selected value={orders.orderType} onChange={handleChange}>4202</option>
-                    <option selected value={orders.orderType} onChange={handleChange}>4204</option>
-                    <option selected value={orders.orderType} onChange={handleChange}>4203</option>
+                  <select defaultValue={initialValues.orderType} onChange={handleChange} name='orderType'>
+                    <option selected value='4201'>4201</option>
+                    <option selected value='4202'>4202</option>
+                    <option selected value='4204'>4204</option>
+                    <option selected value='4203'>4203</option>
                   </select>
                 </div>
                 <div>
