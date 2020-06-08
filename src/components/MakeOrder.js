@@ -1,7 +1,7 @@
 import React from 'react';
 import useCustomForm from './hooks/useCustomForm';
 import Parser from './Parser'
-import formatter from 'xml-formatter'
+import XMLViewer from 'react-xml-viewer'
 
 const initialValues = {
   prodNm : 'GiGAeyes i-view',
@@ -60,7 +60,7 @@ const MakeOrder= () => {
                   <button className='parse-btn btn' type='button' onClick={onParsing}>CREATE</button>
                 </div>
              </form>
-            <textarea className="xml-area" value={mkxml}>
+            <textarea type="text" className="xml-area" value={mkxml}>
               </textarea>
           </div>
         </div>
