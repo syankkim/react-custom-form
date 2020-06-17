@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useCustomForm from './hooks/useCustomForm';
 import Parser from './Parser'
-import XMLViewer from 'react-xml-viewer'
+import $ from 'jquery'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const initialValues = {
+  said : '',
   prodNm : 'GiGAeyes i-view',
   orderType: '4201',
   custNm : '이덕스'
 };
 
 const MakeOrder= () => {
+  
   const {
     orders,
     errors,
@@ -24,7 +28,7 @@ const MakeOrder= () => {
 
   const {
      onParsing,
-     mkxml
+     mkxml,
    } = Parser({orders});
   
     return (
@@ -32,6 +36,11 @@ const MakeOrder= () => {
         <div className="row">
             <form onSubmit={handleSubmit} className='order-form'>
                 <h1>Make Your Order</h1>
+                <div>
+                  <label>계약 ID</label>
+                  <input type='text' name='said' onChange={handleChange} value={orders.said}/>
+                  <button className="said-random-btn btn-rand" type='button' >RANDOM</button>
+                </div>
                 <div>
                   <label>상품유형</label>
                   <select defaultValue={initialValues.prodNm}  onChange={handleChange} name='prodNm'>
@@ -60,12 +69,18 @@ const MakeOrder= () => {
                   <button className='parse-btn btn' type='button' onClick={onParsing}>CREATE</button>
                 </div>
              </form>
-            <textarea type="text" className="xml-area" value={mkxml}>
-              </textarea>
+            {/* <textarea spellcheck="false" type="text" className="xml-area" value={mkxml}>
+              </textarea> */}
+              {/* <pre className="xml-area"><code class="xml">{mkxml}</code></pre> */}
+              <SyntaxHighlighter className="xml-area" language="xml" style={coy}>
+                {mkxml}
+              </SyntaxHighlighter>
           </div>
         </div>
     );
     
 }
+
+
 
 export default MakeOrder;

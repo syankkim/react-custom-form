@@ -14,7 +14,20 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
     <title>React App</title>
-    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.7/styles/monokai_sublime.min.css">
+    <script src="//cdn.jsdelivr.net/highlight.js/8.7/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+      (function() {
+          // Select node, and escape special characters
+          var el = document.querySelector('.xml'),
+              esc = _.escape(el.innerHTML);
+          
+          // Reasign escaped to node and initialize highlight.js
+          el.innerHTML = esc;
+          hljs.highlightBlock(el);
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

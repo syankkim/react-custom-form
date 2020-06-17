@@ -14,20 +14,24 @@
 
 form {
     display: inline-block;
-    width : 400px;
+    width : 500px;
     padding: 1em 1em 3em 1em;
     border: 1px dotted #CCC;
     border-radius: 1em;
     vertical-align: top;
+    margin-bottom: 50px;
+    margin-right: 50px;
 }
 
 .xml-area{
     display: inline-block;
     width: 1000px;
     height: 1000px;
-    margin-left: 5%;
     margin-bottom: 50px;
     border: 1px solid #CCC;
+    background-color: snow;
+    overflow: auto;
+    font-size: 13px;
 }
 
 form div + div{
@@ -60,7 +64,7 @@ input:focus, select:focus {
 
 .buttons{
     float: right;
-    width: 200px;
+    width: 170px;
     position: relative;
 }
 
@@ -75,13 +79,36 @@ input:focus, select:focus {
     position: absolute;
 }
 
-.submit-btn{
-    right: 10px;
-}
-
 .btn:hover {
     background-color: cadetblue;
     color: #fff;
+}
+
+.btn-rand {
+    display: inline-block;
+    border-radius: 5px;
+    width: 70px;
+    height: 30px;
+    border-style: none;
+    background-color: rgb(255, 151, 92);
+    cursor: pointer;
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+}
+
+.btn-rand:hover {
+    background-color: rgb(190, 103, 52);
+    color: #fff;
+}
+
+.submit-btn{
+    right: 5px;
+}
+
+.said-random-btn{
+    margin-left: 10px;
+    
 }
 
 select {
